@@ -61,6 +61,7 @@ MonoBehaviour:
       - rid: 8738576863600836613
       - rid: 8738576863600836614
       - rid: 8738576863600836615
+      - rid: 2746765388310904832
     m_RuntimeSettings:
       m_List: []
   m_AssetVersion: 8
@@ -93,6 +94,12 @@ MonoBehaviour:
   references:
     version: 2
     RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }
+    - rid: 2746765388310904832
+      type: {class: RenderingDebuggerRuntimeResources, ns: UnityEngine.Rendering, asm: Unity.RenderPipelines.Core.Runtime}
+      data:
+        m_version: 0
     - rid: 6852985685364965376
       type: {class: URPShaderStrippingSetting, ns: UnityEngine.Rendering.Universal, asm: Unity.RenderPipelines.Universal.Runtime}
       data:
