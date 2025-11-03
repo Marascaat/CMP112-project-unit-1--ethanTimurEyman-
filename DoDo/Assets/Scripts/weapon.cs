@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class weapon : MonoBehaviour
 {
-
-    public bool isShooting, readyToShoot;
+	public Camera PlayerCam;
+	public bool isShooting, readyToShoot;
     bool allowReset = true;
     public float shootingDelay = 2f;
 
@@ -37,6 +37,12 @@ public class weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        if (isShooting)
+        {
+            Debug.Log("shit");
+        }
+
         if (currentShootingMode == ShootingMode.auto)
         {
             isShooting = Input.GetKey(KeyCode.Mouse0);
@@ -48,7 +54,11 @@ public class weapon : MonoBehaviour
 
         if (readyToShoot && isShooting)
         {
-            currentBurst = bulletsPerBurst;
+
+            Debug.Log("piss");
+		
+
+			currentBurst = bulletsPerBurst;
             FireWeapon();
 
         }
@@ -68,8 +78,10 @@ public class weapon : MonoBehaviour
         StartCoroutine(DestroyBulletAfterTime(bullet, bulletPrefabLifeTime));
         if (allowReset)
         {
-            Invoke("ResetShot", shootingDelay);
-            allowReset= false;
+			Debug.Log("bitch");
+			Invoke("ResetShot", shootingDelay);
+            
+            allowReset=  false;
         }
         if (currentShootingMode == ShootingMode.burst && currentBurst > 3)
         {
@@ -80,11 +92,12 @@ public class weapon : MonoBehaviour
     }
     private void ResetShot()
     {
+        
         readyToShoot = true;
         allowReset = true;
     }
 
-    private Vector3 CalculateDirectionAndSpread()
+    public Vector3 CalculateDirectionAndSpread()
     {
         Ray ray = PlayerCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
         RaycastHit hit;
