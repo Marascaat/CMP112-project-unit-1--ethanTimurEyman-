@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
@@ -11,6 +12,11 @@ public class PlayerCam : MonoBehaviour
 
     float xRotation;
     float yRotation;
+
+    internal static Ray ViewportPointToRay(Vector3 vector3)
+    {
+        throw new NotImplementedException();
+    }
 
     private void Start()
     {
