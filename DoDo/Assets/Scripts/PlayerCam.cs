@@ -1,40 +1,82 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
+
 using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-
+    //Sensitivity
     public float sensX;
     public float sensY;
 
     public Transform orientation;
 
+    
     float xRotation;
     float yRotation;
 
-    internal static Ray ViewportPointToRay(Vector3 vector3)
-    {
-        throw new NotImplementedException();
-    }
+
+    
 
     private void Start()
     {
+        //lock cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
     }
 
-    // Update is called once per frame
+
+    //private void StateHandler()
+    //{
+    //    // Mode - Crouching
+    //    if (Input.GetKey(crouchKey))
+    //    {
+    //        state = MovementState.crouching;
+    //                }
+
+    //    // Mode - Sprinting
+    //    else if (grounded && Input.GetKey(sprintKey))
+    //    {
+    //        state = MovementState.sprinting;
+           
+    //    }
+
+    //    // Mode - Walking
+    //    else if (grounded)
+    //    {
+    //        state = MovementState.walking;
+            
+    //    }
+
+    //    // Mode - Air
+    //    else
+    //    {
+    //        state = MovementState.air;
+    //    }
+    //}
+
     private void Update()
     {
+
+
+        //StateHandler();
+
+
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;
         float mouseY = Input.GetAxisRaw("Mouse Y") * Time.deltaTime * sensY;
 
+        // Camera rotation via mouse
         yRotation += mouseX;
         xRotation -= mouseY;
 
+        // Stops camera when looking up/down
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
+       
+        
     }
+
+
 }
