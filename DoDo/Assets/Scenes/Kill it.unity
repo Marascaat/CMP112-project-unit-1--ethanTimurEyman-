@@ -247,7 +247,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 29382997}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -2180,8 +2180,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraPosition: {fileID: 788344237}
-  amp: 0
-  speed: 0
+  setAmp: 0.1
+  idleFreq: 0.5
+  sprintFreq: 2
+  walkFreq: 1
+  state: 0
 --- !u!4 &771552511
 Transform:
   m_ObjectHideFlags: 0
@@ -2575,7 +2578,7 @@ GameObject:
   - component: {fileID: 952546428}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2638,7 +2641,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 7
-  sprintSpeed: 20
+  sprintSpeed: 13
   groundDrag: 5
   jumpForce: 5
   jumpCooldown: 0.25
@@ -2652,6 +2655,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
+  grounded: 0
   maxSlopeAngle: 40
   orientation: {fileID: 1393135278}
   state: 0

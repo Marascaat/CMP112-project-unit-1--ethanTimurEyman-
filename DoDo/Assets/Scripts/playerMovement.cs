@@ -6,7 +6,6 @@ public class playerMovement : MonoBehaviour
     private float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
-
     public float groundDrag;
 
     [Header("Jumping")]
@@ -28,7 +27,7 @@ public class playerMovement : MonoBehaviour
     [Header("Ground Check")]
     public float playerHeight;
     public LayerMask whatIsGround;
-    bool grounded;
+    public bool grounded;
 
     [Header("Slope Handling")]
     public float maxSlopeAngle;
@@ -44,8 +43,12 @@ public class playerMovement : MonoBehaviour
     Vector3 moveDirection;
 
     Rigidbody rb;
+	public float GetV()
+	{
+		return rb.linearVelocity.magnitude;
+	}
 
-    public MovementState state;
+	public MovementState state;
     public enum MovementState
     {
         walking,

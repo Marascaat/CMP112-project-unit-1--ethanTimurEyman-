@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -6,23 +6,31 @@ using UnityEngine;
 
 public class moveCamera : MonoBehaviour
 {
+
+
     public Transform cameraPosition;
     private float x;
     private float y;
     private float z;
 
-    public float amp;
+    public float setAmp;
+    private float amp;
     private float freq;
+	private float phase;
 
-    public float idleFreq;
+	public float idleFreq;
     public float sprintFreq;
     public float walkFreq;
 
-    void Start()
+	private playerMovement pm;
+	public MovementState state;
+
+	void Start()
     {
-        // Now it's safe to access cameraPosition
-        
-    }
+		// Now it's safe to access cameraPosition
+		var player = GameObject.FindWithTag("Player");
+		pm = player != null ? player.GetComponent<playerMovement>() : null;
+	}
 
     public enum MovementState
     {
@@ -32,56 +40,70 @@ public class moveCamera : MonoBehaviour
         idle,
         air
     }
+	
 
 
-    private void StateHandler()
+	private void StateHandler()
     {
         // Mode - Crouching
-        if (Input.GetKey(crouchKey))
+        if (Input.GetKey(pm.crouchKey))
         {
-            amp = amp / 2;
+            amp = setAmp / 2;
             state = MovementState.crouching;
+            ;
         }
 
         // Mode - Sprinting
-        else if (grounded && Input.GetKey(sprintKey))
+        else if (pm.grounded && Input.GetKey(pm.sprintKey))
         {
-            amp = amp;
+            amp = setAmp;
             freq = sprintFreq;
             state = MovementState.sprinting;
-
-        }
+			
+		}
 
         // Mode - Walking
-        else if (grounded)
+        else if (pm.grounded && pm.GetV() > 0)
         {
             freq = walkFreq;
-            amp = amp;
+            amp = setAmp;
             state = MovementState.walking;
+			
 
-        }
+		}
 
         // Mode - Air
-        else if (!grounded)
+        else if (!pm.grounded)
         {
             amp = 0;
             state = MovementState.air;
-        }
-        else
+			
+		}
+        // Mode - idle
+        else 
         {
-            amp = amp;
+            amp = setAmp;
             freq = idleFreq;
             state = MovementState.idle;
-        }
+			
+		}
     }
+
+
     private void Update()
     {
-        
-        x = cameraPosition.position.x;
+
+        //tracks position on wave
+		phase += freq * 2f * Mathf.PI * Time.deltaTime;
+
+		StateHandler();
+		x = cameraPosition.position.x;
         y = cameraPosition.position.y;
         z = cameraPosition.position.z;
-        StateHandler();
+       
 
-        transform.position = new Vector3(x, (float)(y + Math.Sin(Time.time * speed)*amp), z);
-    }
+        
+		transform.position = new Vector3(x, (float)(y + Math.Sin(phase) * amp), z);
+
+	}
 }
