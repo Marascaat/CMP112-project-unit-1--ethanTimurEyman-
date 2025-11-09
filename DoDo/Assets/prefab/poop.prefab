@@ -48,9 +48,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3182568077287617826, guid: a87bba1d17535c4409ef0cc4ab6d677e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: a87bba1d17535c4409ef0cc4ab6d677e, type: 3}
       propertyPath: m_Name
       value: poop
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a87bba1d17535c4409ef0cc4ab6d677e, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: a87bba1d17535c4409ef0cc4ab6d677e, type: 3}
+      propertyPath: m_TagString
+      value: dodo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -100,7 +112,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
 --- !u!135 &-3027563492426913587
 SphereCollider:
   m_ObjectHideFlags: 0

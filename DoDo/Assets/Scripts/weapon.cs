@@ -14,11 +14,23 @@ public class weapon : MonoBehaviour
 
     public float spreadIntensity;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
     public float bulletVelocity = 30;
     public float bulletPrefabLifeTime = 3f;
+
+    //SFX
+    private AudioSource source;
+    public AudioClip squak;
+
+    public float lowerPitchRange = 0f;
+    public float upperPitchRange = 1f;
+
+    void Start ()
+    {
+        source = GetComponent<AudioSource>();
+    }
 
     public enum ShootingMode
     {
@@ -60,6 +72,9 @@ public class weapon : MonoBehaviour
 
 			currentBurst = bulletsPerBurst;
             FireWeapon();
+
+            source.PlayOneShot(squak, 1.0f);
+            source.pitch = UnityEngine.Random.Range(lowerPitchRange, upperPitchRange);
 
         }
     }

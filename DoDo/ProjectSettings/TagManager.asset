@@ -5,11 +5,12 @@ TagManager:
   serializedVersion: 3
   tags:
   - Target
+  - dodo
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - bullet
   - Water
   - UI
   - whatIsGround
