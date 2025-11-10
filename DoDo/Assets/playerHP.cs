@@ -11,6 +11,8 @@ public class playerHP : MonoBehaviour
     public int hp;
     public bool canBeHit = true;
     public float invulnTime;
+
+    private 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -24,9 +26,9 @@ public class playerHP : MonoBehaviour
     }
     private void OnCollisionStay(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Target"))
+        if (/*isattack = true*/)
         {
-            //print("hit " + collision.gameObject.name);
+            
             Debug.Log("Player Hit");
             if (canBeHit)
             {

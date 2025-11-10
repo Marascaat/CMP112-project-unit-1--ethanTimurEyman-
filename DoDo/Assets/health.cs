@@ -10,7 +10,7 @@ public class health : MonoBehaviour
     public AudioClip fah;
 
     bool dead = false;
-
+    bool isAttack = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
