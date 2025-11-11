@@ -9,8 +9,6 @@ public class playerHP : MonoBehaviour
 
     public int maxHP = 100;
     public int hp;
-    public bool canBeHit = true;
-    public float invulnTime;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -22,30 +20,8 @@ public class playerHP : MonoBehaviour
     {
         bar.value = ((float)(hp) / (float)(maxHP));
     }
-    private void OnCollisionStay(Collision collision)
+    public void PlayerHit()
     {
-        if (collision.gameObject.CompareTag("Target"))
-        {
-            //print("hit " + collision.gameObject.name);
-            Debug.Log("Player Hit");
-            if (canBeHit)
-            {
-                hp--;
-                Debug.Log("Player Hit");
-
-                if (hp <= 0)
-                {
-                    Debug.Log("Player Is Dead");
-                }
-                 StartCoroutine(Invuln());
-            }  
-        }
-    }
-
-    IEnumerator Invuln()
-    {
-        canBeHit = false;
-        yield return new WaitForSeconds(invulnTime);
-        canBeHit = true;
+        hp = hp - 10;
     }
 }
