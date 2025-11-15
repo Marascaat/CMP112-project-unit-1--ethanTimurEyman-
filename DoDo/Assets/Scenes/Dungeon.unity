@@ -79422,18 +79422,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerFinal
       objectReference: {fileID: 0}
-    - target: {fileID: 7599440071234564427, guid: 2c692e6678762654b9eeae0a4f07f425, type: 3}
-      propertyPath: shootingDelay
-      value: 0.005
-      objectReference: {fileID: 0}
-    - target: {fileID: 7599440071234564427, guid: 2c692e6678762654b9eeae0a4f07f425, type: 3}
-      propertyPath: spreadIntensity
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7599440071234564427, guid: 2c692e6678762654b9eeae0a4f07f425, type: 3}
-      propertyPath: currentShootingMode
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
