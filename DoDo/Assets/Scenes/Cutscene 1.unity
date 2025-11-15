@@ -5437,6 +5437,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4965061945337332097, guid: cc2daf2c0e2a9034999b8e08d91dc167, type: 3}
+      propertyPath: setAmp
+      value: 0.02
+      objectReference: {fileID: 0}
     - target: {fileID: 6730066384610809409, guid: cc2daf2c0e2a9034999b8e08d91dc167, type: 3}
       propertyPath: jumpForce
       value: 3
@@ -5451,7 +5455,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6730066384610809409, guid: cc2daf2c0e2a9034999b8e08d91dc167, type: 3}
       propertyPath: playerHeight
-      value: 1
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7398108131505922655, guid: cc2daf2c0e2a9034999b8e08d91dc167, type: 3}
       propertyPath: m_LocalScale.x
@@ -5470,12 +5474,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7698001775800068165, guid: cc2daf2c0e2a9034999b8e08d91dc167, type: 3}
+      propertyPath: shootingDelay
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 7698001775800068165, guid: cc2daf2c0e2a9034999b8e08d91dc167, type: 3}
       propertyPath: bulletVelocity
       value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 7698001775800068165, guid: cc2daf2c0e2a9034999b8e08d91dc167, type: 3}
+      propertyPath: spreadIntensity
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7698001775800068165, guid: cc2daf2c0e2a9034999b8e08d91dc167, type: 3}
       propertyPath: currentShootingMode
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7992608299551523845, guid: cc2daf2c0e2a9034999b8e08d91dc167, type: 3}
       propertyPath: near clip plane
